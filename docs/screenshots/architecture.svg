@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#f9f5ef"/>
+  <text x="80" y="80" font-family="Segoe UI, Arial" font-size="34" fill="#3f2a13">MedBill Tracker Architecture</text>
+  <rect x="90" y="150" width="250" height="120" rx="16" fill="#fff" stroke="#d9c7aa"/>
+  <text x="125" y="215" font-family="Segoe UI, Arial" font-size="24" fill="#5c3c18">Android App</text>
+  <rect x="470" y="150" width="290" height="120" rx="16" fill="#fff" stroke="#d9c7aa"/>
+  <text x="500" y="215" font-family="Segoe UI, Arial" font-size="24" fill="#5c3c18">ASP.NET Core API</text>
+  <rect x="860" y="120" width="250" height="120" rx="16" fill="#fff" stroke="#d9c7aa"/>
+  <text x="892" y="185" font-family="Segoe UI, Arial" font-size="24" fill="#5c3c18">Microsoft Entra</text>
+  <rect x="860" y="290" width="250" height="120" rx="16" fill="#fff" stroke="#d9c7aa"/>
+  <text x="925" y="355" font-family="Segoe UI, Arial" font-size="24" fill="#5c3c18">Azure SQL</text>
+  <rect x="860" y="460" width="250" height="120" rx="16" fill="#fff" stroke="#d9c7aa"/>
+  <text x="900" y="525" font-family="Segoe UI, Arial" font-size="24" fill="#5c3c18">Blob Storage</text>
+  <line x1="340" y1="210" x2="470" y2="210" stroke="#9e7b4d" stroke-width="4"/>
+  <line x1="760" y1="190" x2="860" y2="180" stroke="#9e7b4d" stroke-width="4"/>
+  <line x1="760" y1="240" x2="860" y2="340" stroke="#9e7b4d" stroke-width="4"/>
+  <line x1="760" y1="260" x2="860" y2="510" stroke="#9e7b4d" stroke-width="4"/>
+  <text x="365" y="190" font-family="Segoe UI, Arial" font-size="16" fill="#6f4f29">HTTPS + Bearer Token</text>
+  <text x="790" y="170" font-family="Segoe UI, Arial" font-size="15" fill="#6f4f29">OIDC</text>
+  <text x="790" y="318" font-family="Segoe UI, Arial" font-size="15" fill="#6f4f29">EF Core</text>
+  <text x="790" y="500" font-family="Segoe UI, Arial" font-size="15" fill="#6f4f29">Azure SDK</text>
+</svg>

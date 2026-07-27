@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="720" viewBox="0 0 1080 720">
+  <rect width="1080" height="720" fill="#f3f8f7"/>
+  <rect x="120" y="90" width="840" height="540" rx="24" fill="#ffffff" stroke="#d0e5df"/>
+  <text x="170" y="160" font-family="Segoe UI, Arial" font-size="30" fill="#14463a">API Health Check</text>
+  <rect x="170" y="205" width="740" height="320" rx="14" fill="#0f172a"/>
+  <text x="200" y="258" font-family="Consolas, monospace" font-size="20" fill="#a7f3d0">GET /health</text>
+  <text x="200" y="300" font-family="Consolas, monospace" font-size="19" fill="#e2e8f0">{</text>
+  <text x="230" y="336" font-family="Consolas, monospace" font-size="19" fill="#e2e8f0">"status": "Healthy",</text>
+  <text x="230" y="372" font-family="Consolas, monospace" font-size="19" fill="#e2e8f0">"databaseReady": true,</text>
+  <text x="230" y="408" font-family="Consolas, monospace" font-size="19" fill="#e2e8f0">"environment": "Production"</text>
+  <text x="200" y="444" font-family="Consolas, monospace" font-size="19" fill="#e2e8f0">}</text>
+  <text x="170" y="575" font-family="Segoe UI, Arial" font-size="16" fill="#4b635f">Illustrative health endpoint snapshot for documentation.</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="720" viewBox="0 0 1080 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eaf4ff"/>
+      <stop offset="100%" stop-color="#f8fbff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="720" fill="url(#bg)"/>
+  <rect x="310" y="90" width="460" height="540" rx="32" fill="#ffffff" stroke="#d9e5f4"/>
+  <text x="540" y="170" text-anchor="middle" font-family="Segoe UI, Arial" font-size="34" fill="#11304f">MedBill Tracker</text>
+  <text x="540" y="208" text-anchor="middle" font-family="Segoe UI, Arial" font-size="18" fill="#47617a">Secure sign-in with Microsoft Entra ID</text>
+  <rect x="370" y="262" width="340" height="64" rx="12" fill="#0063d1"/>
+  <text x="540" y="303" text-anchor="middle" font-family="Segoe UI, Arial" font-size="24" fill="#ffffff">Sign In</text>
+  <rect x="370" y="352" width="340" height="188" rx="12" fill="#f6f9ff" stroke="#d9e5f4"/>
+  <text x="395" y="390" font-family="Consolas, monospace" font-size="16" fill="#2e4c68">Tenant: 7fcb095b-344f-4c1e-8e12-bc781eb03e72</text>
+  <text x="395" y="420" font-family="Consolas, monospace" font-size="16" fill="#2e4c68">Auth Type: AzureADMyOrg</text>
+  <text x="395" y="450" font-family="Consolas, monospace" font-size="16" fill="#2e4c68">MSAL: Single Account</text>
+  <text x="395" y="480" font-family="Consolas, monospace" font-size="16" fill="#2e4c68">API: /api/auth/session (Authorized)</text>
+  <text x="540" y="590" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" fill="#607086">Illustrative screenshot placeholder for README</text>
+</svg>

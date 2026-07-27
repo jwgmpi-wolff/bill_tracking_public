@@ -1,0 +1,94 @@
+CREATE TABLE Users (
+    UserId UNIQUEIDENTIFIER PRIMARY KEY,
+    ExternalIdentityId NVARCHAR(128) NOT NULL,
+    Email NVARCHAR(256) NOT NULL,
+    DisplayName NVARCHAR(128) NOT NULL,
+    CreatedAt DATETIMEOFFSET NOT NULL,
+    LastLoginAt DATETIMEOFFSET NULL
+);
+
+CREATE TABLE Providers (
+    ProviderId UNIQUEIDENTIFIER PRIMARY KEY,
+    UserId UNIQUEIDENTIFIER NOT NULL,
+    ProviderName NVARCHAR(256) NOT NULL,
+    BillingPhone NVARCHAR(32) NULL,
+    BillingPortalUrl NVARCHAR(512) NULL,
+    Notes NVARCHAR(1000) NULL
+);
+
+CREATE TABLE Bills (
+    BillId UNIQUEIDENTIFIER PRIMARY KEY,
+    UserId UNIQUEIDENTIFIER NOT NULL,
+    ProviderId UNIQUEIDENTIFIER NOT NULL,
+    InvoiceNumber NVARCHAR(128) NOT NULL,
+    AccountNumber NVARCHAR(128) NULL,
+    ServiceDate DATE NOT NULL,
+    BillDate DATE NOT NULL,
+    DueDate DATE NOT NULL,
+    TotalBilledAmount DECIMAL(18,2) NOT NULL,
+    InsurancePaidAmount DECIMAL(18,2) NOT NULL,
+    DiscountAdjustmentAmount DECIMAL(18,2) NOT NULL,
+    PatientResponsibilityAmount DECIMAL(18,2) NOT NULL,
+    AmountPaid DECIMAL(18,2) NOT NULL DEFAULT(0),
+    CurrentStatus NVARCHAR(64) NOT NULL,
+    IsOverdue BIT NOT NULL DEFAULT(0),
+    CreatedAt DATETIMEOFFSET NOT NULL,
+    UpdatedAt DATETIMEOFFSET NOT NULL
+);
+
+CREATE TABLE BillStatusHistory (
+    StatusHistoryId UNIQUEIDENTIFIER PRIMARY KEY,
+    BillId UNIQUEIDENTIFIER NOT NULL,
+    Status NVARCHAR(64) NOT NULL,
+    ChangedAt DATETIMEOFFSET NOT NULL,
+    ChangedBy NVARCHAR(128) NOT NULL,
+    Notes NVARCHAR(1000) NULL
+);
+
+CREATE TABLE Documents (
+    DocumentId UNIQUEIDENTIFIER PRIMARY KEY,
+    BillId UNIQUEIDENTIFIER NOT NULL,
+    UserId UNIQUEIDENTIFIER NOT NULL,
+    DocumentType NVARCHAR(64) NOT NULL,
+    BlobUri NVARCHAR(1024) NOT NULL,
+    FileName NVARCHAR(255) NOT NULL,
+    ContentType NVARCHAR(128) NOT NULL,
+    UploadedAt DATETIMEOFFSET NOT NULL,
+    OcrStatus NVARCHAR(64) NOT NULL,
+    Sha256Hash NVARCHAR(128) NOT NULL
+);
+
+CREATE TABLE Payments (
+    PaymentId UNIQUEIDENTIFIER PRIMARY KEY,
+    BillId UNIQUEIDENTIFIER NOT NULL,
+    UserId UNIQUEIDENTIFIER NOT NULL,
+    PaymentProvider NVARCHAR(64) NOT NULL,
+    ProviderCustomerId NVARCHAR(128) NULL,
+    PaymentSessionId NVARCHAR(128) NOT NULL,
+    PaymentIntentId NVARCHAR(128) NULL,
+    TransactionId NVARCHAR(128) NULL,
+    Amount DECIMAL(18,2) NOT NULL,
+    Currency NVARCHAR(8) NOT NULL,
+    PaymentStatus NVARCHAR(64) NOT NULL,
+    PaidAt DATETIMEOFFSET NULL,
+    CreatedAt DATETIMEOFFSET NOT NULL,
+    WebhookVerified BIT NOT NULL DEFAULT(0)
+);
+
+CREATE TABLE AuditLog (
+    AuditId UNIQUEIDENTIFIER PRIMARY KEY,
+    UserId UNIQUEIDENTIFIER NULL,
+    Action NVARCHAR(64) NOT NULL,
+    EntityType NVARCHAR(64) NOT NULL,
+    EntityId NVARCHAR(128) NOT NULL,
+    Timestamp DATETIMEOFFSET NOT NULL,
+    IpAddress NVARCHAR(64) NULL,
+    DeviceId NVARCHAR(128) NULL,
+    Result NVARCHAR(32) NOT NULL,
+    CorrelationId NVARCHAR(128) NOT NULL
+);
+
+CREATE INDEX IX_Bills_UserId ON Bills(UserId);
+CREATE INDEX IX_Documents_BillId_UserId ON Documents(BillId, UserId);
+CREATE INDEX IX_Payments_BillId_UserId ON Payments(BillId, UserId);
+CREATE INDEX IX_AuditLog_UserId_Timestamp ON AuditLog(UserId, Timestamp DESC);

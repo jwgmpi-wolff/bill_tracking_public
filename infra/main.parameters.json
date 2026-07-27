@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "eastus"
+    },
+    "appServiceName": {
+      "value": "app-medbill-api"
+    },
+    "sqlServerName": {
+      "value": "sqlmedbillserver001"
+    },
+    "sqlAdminLogin": {
+      "value": "sqladminuser"
+    },
+    "sqlAdminPassword": {
+      "value": "replace-at-deploy-time"
+    },
+    "storageAccountName": {
+      "value": "stmedbilltracker001"
+    },
+    "keyVaultName": {
+      "value": "kv-medbill-tracker-001"
+    }
+  }
+}

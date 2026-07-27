@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedBill Tracker Downloads</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #10243e;
+      --accent: #0063d1;
+      --muted: #607086;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      background: radial-gradient(circle at top right, #d8ebff, var(--bg));
+      color: var(--text);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      max-width: 720px;
+      width: 100%;
+      border-radius: 20px;
+      background: var(--card);
+      padding: 28px;
+      box-shadow: 0 20px 48px rgba(16, 36, 62, 0.12);
+    }
+    .title {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    .sub {
+      color: var(--muted);
+      margin-top: 8px;
+    }
+    .meta {
+      margin: 20px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .meta-item {
+      border: 1px solid #d7e0ea;
+      border-radius: 10px;
+      padding: 12px;
+      background: #fafcff;
+    }
+    .download {
+      margin-top: 16px;
+      display: inline-block;
+      text-decoration: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 10px;
+    }
+    .note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    code {
+      display: block;
+      margin-top: 8px;
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body>
+  <article class="card">
+    <h1 class="title">MedBill Tracker Android Download</h1>
+    <p class="sub">Secure bill tracking and medical invoice payments.</p>
+
+    <section class="meta">
+      <div class="meta-item">
+        <strong>Version</strong>
+        <div id="version">v1.0.0</div>
+      </div>
+      <div class="meta-item">
+        <strong>Release Date (UTC)</strong>
+        <div id="releaseDate">2026-07-24T00:00:00Z</div>
+      </div>
+      <div class="meta-item">
+        <strong>File</strong>
+        <div id="fileName">MedBillTracker-v1.0.0.apk</div>
+      </div>
+      <div class="meta-item">
+        <strong>SHA256</strong>
+        <code id="checksum">replace-with-checksum</code>
+      </div>
+    </section>
+
+    <a class="download" id="downloadLink" href="#">Download APK</a>
+
+    <p class="note">
+      Sideload warning: Android may display a warning for apps installed outside Google Play.
+      Verify the SHA256 checksum before install.
+    </p>
+  </article>
+
+  <script>
+    async function loadRelease() {
+      try {
+        const response = await fetch("release.json", { cache: "no-store" });
+        if (!response.ok) return;
+        const data = await response.json();
+        document.getElementById("version").textContent = data.version || "n/a";
+        document.getElementById("releaseDate").textContent = data.releaseDate || "n/a";
+        document.getElementById("fileName").textContent = data.fileName || "n/a";
+        document.getElementById("checksum").textContent = data.sha256 || "n/a";
+        document.getElementById("downloadLink").href = data.downloadUrl || "#";
+      } catch (_) {
+      }
+    }
+    loadRelease();
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+# Build outputs
+**/bin/
+**/obj/
+**/build/
+**/.gradle/
+**/.idea/
+
+# Local tooling and caches
+.vscode/
+.tmp/
+.tools/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.user
+*.suo
+*.log
+
+# Secrets and local overrides
+.env
+.env.*
+*.pfx
+*.keystore
+android/local.properties
+
+# Published artifacts
+**/*.apk
+**/*.aab
